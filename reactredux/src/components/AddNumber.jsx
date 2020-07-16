@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
+import store from "../store";
 export default class AddNumber extends Component {
   state = { size: 0 };
   handleClick = () => {
-    this.props.onClick(this.state.size);
+    //this.props.onClick(this.state.size);
+    store.dispatch({ type: "INCREMENT", size: this.state.size });
   };
 
   handleChange = (e) => {
