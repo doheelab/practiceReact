@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import User from "./User";
 
 class UserList extends Component {
-  /*
-  shouldComponentUpdate(prevProps, prevState) {
-    return prevProps.users !== this.props.users;
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.users !== this.props.users;
   }
-  */
 
   renderUsers = () => {
     const { users } = this.props;
