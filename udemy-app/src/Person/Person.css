@@ -3,6 +3,10 @@
   margin: 16px;
   border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
-  padding: 16px;
+  padding: 6px;
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
