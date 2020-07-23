@@ -13,6 +13,7 @@ class App extends Component {
     ],
     otherState: "some other value",
     showPersons: false,
+    showCockpit: true,
   };
 
   nameChangedHandler = (event, id) => {
@@ -54,27 +55,25 @@ class App extends Component {
         />
       );
     }
-
-    let assignedClasses = [];
-    let btnClass = {};
-    if (this.state.showPersons) {
-      btnClass = "red";
-    }
-
-    if (this.state.persons.length <= 2) {
-      assignedClasses.push("red");
-    }
-    if (this.state.persons.length <= 1) {
-      assignedClasses.push("red");
-    }
-
-    console.log(this.state.showPersons);
-
+    console.log(persons);
     return (
       <div className="App">
-        <h1> Hi, I am a react app. </h1>
-        <p className={assignedClasses.join(" ")}>This is really working!</p>
-        <button onClick={this.togglePersonsHandler}>Switch Name</button>
+        <button
+          onClick={() => {
+            this.setState({ showCockpit: false });
+          }}
+        >
+          {" "}
+          Remove Cockpit
+        </button>
+        {this.state.showCockpit ? (
+          <Cockpit
+            title={this.props.appTitle}
+            personsLength={this.state.persons.length}
+            showPersons={this.state.showPersons}
+            clicked={this.togglePersonsHandler}
+          />
+        ) : null}
         {persons}
       </div>
     );

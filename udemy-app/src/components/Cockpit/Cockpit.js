@@ -1,29 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Cockpit.css";
+import Radium from "radium";
 
 const Cockpit = (props) => {
+  useEffect(() => {
+    console.log("[Cockpit.js] useEffect");
+    const timer = setTimeout(() => {
+      alert("Saved data to cloud!");
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   let assignedClasses = [];
-  let btnClass = {};
+
+  const style = {
+    border: "1px solid blue",
+    padding: "16px",
+    backgroundColor: "green",
+    font: "inherit",
+    color: "white",
+    cursor: "pointer",
+    ":hover": {
+      backgroundColor: "lightgreen",
+      color: "black",
+    },
+  };
+
   if (props.showPersons) {
-    btnClass = "red";
+    style.backgroundColor = "red";
+    style[":hover"] = {
+      backgroundColor: "salmon",
+      color: "black",
+    };
   }
 
-  if (props.persons.length <= 2) {
+  if (props.personsLength <= 2) {
     assignedClasses.push("red");
   }
-  if (props.persons.length <= 1) {
-    assignedClasses.push("red");
+  if (props.personsLength <= 1) {
+    assignedClasses.push("bold");
   }
 
   return (
     <div className={"Cockpit"}>
-      <h1> Hi, I am a react app. </h1>
+      <h1> {props.title} </h1>
       <p className={assignedClasses.join(" ")}>This is really working!</p>
-      <button style={btnClass} onClick={props.clicked}>
-        Switch Name
+      <button style={style} onClick={props.clicked}>
+        Toggle person
       </button>
     </div>
   );
 };
 
-export default Cockpit;
+export default React.memo(Radium(Cockpit));

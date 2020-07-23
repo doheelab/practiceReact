@@ -9,6 +9,35 @@
   font-weight: bold;
 }
 
+/*
+.button {
+  border: 1px solid blue;
+  padding: 16px;
+  background-color: green;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+.buttonRed {
+  border: 1px solid blue;
+  padding: 16px;
+  background-color: green;
+  font: inherit;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonRed:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
 .App button {
   border: 1px solid blue;
   padding: 16px;
@@ -23,7 +52,7 @@
   color: black;
 }
 
-.App button.Red {
+.App button:red {
   background-color: red;
   color: black;
 }
@@ -32,3 +61,4 @@
   background-color: salmon;
   color: black;
 }
+*/
